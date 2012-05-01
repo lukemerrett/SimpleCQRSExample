@@ -4,6 +4,10 @@ using SimpleCQRS;
 
 namespace CQRSGui.Controllers
 {
+    using SimpleCQRS.Bus;
+    using SimpleCQRS.Command;
+    using SimpleCQRS.Query;
+
     [HandleError]
     public class HomeController : Controller
     {

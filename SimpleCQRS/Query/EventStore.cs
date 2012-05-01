@@ -1,9 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-
-namespace SimpleCQRS
+namespace SimpleCQRS.Query
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+
+    using Bus;
+
     public interface IEventStore
     {
         void SaveEvents(Guid aggregateId, IEnumerable<Event> events, int expectedVersion);

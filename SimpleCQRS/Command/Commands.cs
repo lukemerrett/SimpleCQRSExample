@@ -1,7 +1,12 @@
-using System;
-namespace SimpleCQRS
+namespace SimpleCQRS.Command
 {
-	public class Command : Message
+    using System;
+
+    using Bus;
+
+    using Query;
+
+    public class Command : Message
 	{
 	}
 	

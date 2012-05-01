@@ -1,8 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace SimpleCQRS
+namespace SimpleCQRS.Command
 {
+    using System;
+    using System.Collections.Generic;
+
+    using Bus;
+
+    using Query;
+
     public class InventoryItem : AggregateRoot
     {
         private bool _activated;

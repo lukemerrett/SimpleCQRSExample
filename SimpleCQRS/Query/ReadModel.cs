@@ -1,8 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace SimpleCQRS
+namespace SimpleCQRS.Query
 {
+    using System;
+    using System.Collections.Generic;
+
+    using Bus;
+
+    using Command;
+
     public interface IReadModelFacade
     {
         IEnumerable<InventoryItemListDto> GetInventoryItems();
@@ -56,7 +60,7 @@ namespace SimpleCQRS
         }
     }
 
-    public class InvenotryItemDetailView : Handles<InventoryItemCreated>, Handles<InventoryItemDeactivated>, Handles<InventoryItemRenamed>, Handles<ItemsRemovedFromInventory>, Handles<ItemsCheckedInToInventory>
+    public class InventoryItemDetailView : Handles<InventoryItemCreated>, Handles<InventoryItemDeactivated>, Handles<InventoryItemRenamed>, Handles<ItemsRemovedFromInventory>, Handles<ItemsCheckedInToInventory>
     {
         public void Handle(InventoryItemCreated message)
         {

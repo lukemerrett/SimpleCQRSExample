@@ -1,7 +1,8 @@
-using System;
-namespace SimpleCQRS
+namespace SimpleCQRS.Query
 {
-	public class Event : Message
+    using System;
+
+    public class Event : Message
 	{
         public int Version;
 	}

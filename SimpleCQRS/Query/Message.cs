@@ -1,5 +1,4 @@
-using System;
-namespace SimpleCQRS
+namespace SimpleCQRS.Query
 {
 	public interface Message
 	{

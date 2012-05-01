@@ -1,9 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Threading;
-
-namespace SimpleCQRS
+namespace SimpleCQRS.Bus
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Threading;
+
+    using Command;
+
+    using Query;
+
     public class FakeBus : ICommandSender, IEventPublisher
     {
         private readonly Dictionary<Type, List<Action<Message>>> _routes = new Dictionary<Type, List<Action<Message>>>();
