@@ -20,7 +20,7 @@ Thumbs.db
 *.ilk
 *.log
 *.userprefs
-*.ncrunchsolution
+*.ncrunchsolution*
 [Bb]in
 [Dd]ebug*/
 *.lib
