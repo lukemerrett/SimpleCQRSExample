@@ -41,18 +41,18 @@ namespace SimpleCQRS
     {
         public void Handle(InventoryItemCreated message)
         {
-            BullShitDatabase.list.Add(new InventoryItemListDto(message.Id, message.Name));
+            DummyDatabase.List.Add(new InventoryItemListDto(message.Id, message.Name));
         }
 
         public void Handle(InventoryItemRenamed message)
         {
-            var item = BullShitDatabase.list.Find(x => x.Id == message.Id);
+            var item = DummyDatabase.List.Find(x => x.Id == message.Id);
             item.Name = message.NewName;
         }
 
         public void Handle(InventoryItemDeactivated message)
         {
-            BullShitDatabase.list.RemoveAll(x => x.Id == message.Id);
+            DummyDatabase.List.RemoveAll(x => x.Id == message.Id);
         }
     }
 
@@ -60,7 +60,7 @@ namespace SimpleCQRS
     {
         public void Handle(InventoryItemCreated message)
         {
-            BullShitDatabase.details.Add(message.Id, new InventoryItemDetailsDto(message.Id, message.Name, 0,0));
+            DummyDatabase.Details.Add(message.Id, new InventoryItemDetailsDto(message.Id, message.Name, 0,0));
         }
 
         public void Handle(InventoryItemRenamed message)
@@ -73,7 +73,7 @@ namespace SimpleCQRS
         private InventoryItemDetailsDto GetDetailsItem(Guid id)
         {
             InventoryItemDetailsDto d;
-            if(!BullShitDatabase.details.TryGetValue(id, out d))
+            if(!DummyDatabase.Details.TryGetValue(id, out d))
             {
                 throw new InvalidOperationException("did not find the original inventory this shouldnt happen");
             }
@@ -96,7 +96,7 @@ namespace SimpleCQRS
 
         public void Handle(InventoryItemDeactivated message)
         {
-            BullShitDatabase.details.Remove(message.Id);
+            DummyDatabase.Details.Remove(message.Id);
         }
     }
 
@@ -104,18 +104,18 @@ namespace SimpleCQRS
     {
         public IEnumerable<InventoryItemListDto> GetInventoryItems()
         {
-            return BullShitDatabase.list;
+            return DummyDatabase.List;
         }
 
         public InventoryItemDetailsDto GetInventoryItemDetails(Guid id)
         {
-            return BullShitDatabase.details[id];
+            return DummyDatabase.Details[id];
         }
     }
 
-    public static class BullShitDatabase 
+    public static class DummyDatabase 
     {
-        public static Dictionary<Guid, InventoryItemDetailsDto> details = new Dictionary<Guid,InventoryItemDetailsDto>();
-        public static List<InventoryItemListDto> list = new List<InventoryItemListDto>();
+        public static Dictionary<Guid, InventoryItemDetailsDto> Details = new Dictionary<Guid,InventoryItemDetailsDto>();
+        public static List<InventoryItemListDto> List = new List<InventoryItemListDto>();
     }
 }
