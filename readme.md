@@ -12,8 +12,6 @@ Structure
 
 2 projects:
 
-  CQRSGui - The MVC application; this is a simple website for adding, 
-            viewing and editing items
-  SimpleCQRS - The CQRS implementaion itself.  The folder structure 
-            denotes the 3 different areas of CQRS.
+* CQRSGui - The MVC application; this is a simple website for adding, viewing and editing items
+* SimpleCQRS - The CQRS implementaion itself.  The folder structure denotes the 3 different areas of CQRS.
 
